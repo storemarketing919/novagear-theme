@@ -1,0 +1,57 @@
+<section
+  class="nova-hero"
+  {% if section.settings.image !=" blank" %}
+  style="background-image: url('{{section.settings.image|image_url:width:2000}}');"
+  {% endif %}>
+  <div class="nova-hero__content">
+    <h1>{{ section.settings.heading }}</h1>
+
+    <p>{{ section.settings.text }}</p>
+
+    {% if section.settings.button_label != blank %}
+      <a href="{{section.settings.button_link}}" class="nova-hero__button">
+        {{ section.settings.button_label }}
+      </a>
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "NovaGear Hero",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Hero image"
+      },
+      {
+        "type": "text",
+        "id": "heading",
+        "label": "Heading",
+        "default": "Dominate Every Game"
+      },
+      {
+        "type": "textarea",
+        "id": "text",
+        "label": "Text",
+        "default": "Premium gaming equipment built for your next victory."
+      },
+      {
+        "type": "text",
+        "id": "button_label",
+        "label": "Button label",
+        "default": "Shop Now"
+      }, {
+        "type": "url",
+        "id": "button_link",
+        "label": "Button link"
+      }
+    ],
+    "presets": [
+      {
+        "name": "NovaGear Hero"
+      }
+    ]
+  }
+{% endschema %}

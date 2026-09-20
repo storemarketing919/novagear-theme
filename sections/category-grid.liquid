@@ -1,0 +1,71 @@
+<section class="category-grid">
+  <div class="category-grid__container">
+    <h2>{{ section.settings.title }}</h2>
+    <div class="category-grid__items">
+      {% for block in section.blocks %}
+        <a href="{{block.settings.link}}" class="category-card">
+          {% if block.settings.image != blank %}
+            <img src="{{ block.settings.image | image_url: width: 600 }}" alt="{{ block.settings.title }}">
+
+          {% endif %}
+          <h3>
+            {{ block.settings.title }}
+          </h3>
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "Category Grid",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Shop Gaming Gear"
+      }
+    ],
+
+    "blocks": [
+      {
+        "type": "category",
+        "name": "Category",
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Category name",
+            "default": "Gaming Headsets"
+          }, {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Category image"
+          }, {
+            "type": "url",
+            "id": "link",
+            "label": "Category link"
+          }
+        ]
+      }
+    ],
+    "presets": [
+        {
+            "name": "Category Grid",
+            "blocks": [
+                {
+                    "type": "category"
+                },
+                {
+                    "type": "category"
+                },
+                {
+                    "type": "category"
+                }
+            ]
+        }
+    ]
+  }
+{% endschema %}
