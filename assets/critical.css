@@ -196,7 +196,7 @@ body {
 
 .category-grid__items {
   display: grid;
-  grid-template-columns: repeat(3, ltr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 24px;
 }
 
@@ -206,6 +206,7 @@ body {
   overflow: hidden;
   min-height: 320px;
   background: #111111;
+  text-align: center;
   color: #ffffff;
   text-decoration: none;
   border-radius: 8px;
@@ -223,17 +224,22 @@ body {
   right: 0;
   bottom: 0;
   left: 0;
-  margin: 0;
+  margin: 4px;
   padding: 24px;
   background: linear-gradient(
     transparent,
-    rgba(230, 56, 56, 0.85)
+    rgba(0, 0, 0, 0.85)
   );
-  font-size: 24px;
+  font-size: 18px;
 }
 
 .category-card:hover img {
   transform: scale(1.05);
+}
+
+.category-card:hover h3 {
+  color:red;
+  text-decoration: underline;
 }
 
 @media screen and (max-width: 749px) {
